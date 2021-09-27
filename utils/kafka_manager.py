@@ -1,21 +1,17 @@
-from configparser import ConfigParser
-from mimetypes import init
+from load_config import get_conf
 from confluent_kafka import Producer, Consumer
 from confluent_kafka.admin import AdminClient, NewTopic
 
 # Read configurations from ini file
-ini_file = ".config.ini"
-config = ConfigParser()
-config.read(ini_file)
-K_CONFIG = config['KAFKA']
+CONFIG = get_conf(ini_file=".config.ini", section="KAFKA")
 
-kafka_bootstrap_servers = f"{K_CONFIG['SERVER']}:{K_CONFIG['PORT']}"
-topic = K_CONFIG['TOPIC']
+kafka_bootstrap_servers = f"{CONFIG['SERVER']}:{CONFIG['PORT']}"
+topic = CONFIG['TOPIC']
 
 # If topic not existing, create the topics
 admin = AdminClient({'bootstrap.servers': kafka_bootstrap_servers})
 if topic not in admin.list_topics().topics:
-    new_topic = NewTopic(topic, int(K_CONFIG['NUM_PARTITIONS']), int(K_CONFIG['NUM_REPLICAS']))
+    new_topic = NewTopic(topic, int(CONFIG['NUM_PARTITIONS']), int(CONFIG['NUM_REPLICAS']))
     admin.create_topics([new_topic,])
 
 

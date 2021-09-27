@@ -1,9 +1,9 @@
-create_keyspace = """CREATE KEYSPACE keyspace_holder
-WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 1};"""
+CREATE KEYSPACE IF NOT EXISTS tutorial_python_ks
+WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 1};
 
-use_keyspace = "USE keyspace_holder;"
+USE tutorial_python_ks;
 
-create_transactions_events_table = """CREATE TABLE transactions_events(
+CREATE TABLE IF NOT EXISTS tutorial_python_ks.transactions_events(
    id UUID PRIMARY KEY,
    t_datetime timestamp,
    t_epoch_datetime int,
@@ -18,10 +18,11 @@ create_transactions_events_table = """CREATE TABLE transactions_events(
    currency_name text,
    mac_address text,
    success boolean,
-   comment text );
-   """
+   comment text 
+);
 
-create_user_transactions_stats_table = """CREATE TABLE user_transactions_stats(
+
+CREATE TABLE IF NOT EXISTS tutorial_python_ks.user_transactions_stats(
    id UUID,
    username text,
    sent_transactions counter,
@@ -31,5 +32,4 @@ create_user_transactions_stats_table = """CREATE TABLE user_transactions_stats(
    sent_total_amount decimal,
    received_total_amount decimal,
    PRIMARY KEY (id, username)
-   );
-   """
+);

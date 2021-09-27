@@ -1,0 +1,4 @@
+confluent_kafka==1.7.0
+psycopg2==2.9.1
+Faker==8.14.0
+cassandra_driver==3.25.0

@@ -1,4 +1,4 @@
-create_transactions_events_table = """CREATE TABLE transactions_events(
+CREATE TABLE IF NOT EXISTS transactions_events(
    id serial PRIMARY KEY,
    t_datetime timestamp,
    t_epoch_datetime int,
@@ -13,10 +13,11 @@ create_transactions_events_table = """CREATE TABLE transactions_events(
    currency_name text,
    mac_address macaddr,
    success boolean,
-   comment text );
-   """
+   comment text 
+);
 
-create_user_profile_table = """CREATE TABLE user_profile(
+
+CREATE TABLE IF NOT EXISTS user_profile(
    id serial PRIMARY KEY,
    username text,
    name text,
@@ -30,7 +31,5 @@ create_user_profile_table = """CREATE TABLE user_profile(
    sex text,
    address text,
    mail text,
-   birthdate date,
-   );
-   """
-   
+   birthdate date
+);
