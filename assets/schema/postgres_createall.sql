@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS transactions_events(
+CREATE TABLE IF NOT EXISTS f_transactions_events(
    id serial PRIMARY KEY,
    t_datetime timestamp,
    t_epoch_datetime int,
@@ -16,8 +16,7 @@ CREATE TABLE IF NOT EXISTS transactions_events(
    comment text 
 );
 
-
-CREATE TABLE IF NOT EXISTS user_profile(
+CREATE TABLE IF NOT EXISTS d_user_profile(
    id serial PRIMARY KEY,
    username text,
    name text,

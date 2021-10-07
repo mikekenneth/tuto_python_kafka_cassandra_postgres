@@ -1,9 +1,9 @@
 CREATE KEYSPACE IF NOT EXISTS tutorial_python_ks
-WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 1};
+WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 3};
 
 USE tutorial_python_ks;
 
-CREATE TABLE IF NOT EXISTS tutorial_python_ks.transactions_events(
+CREATE TABLE IF NOT EXISTS tutorial_python_ks.f_transactions_events(
    id UUID PRIMARY KEY,
    t_datetime timestamp,
    t_epoch_datetime int,
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS tutorial_python_ks.transactions_events(
 );
 
 
-CREATE TABLE IF NOT EXISTS tutorial_python_ks.user_transactions_stats(
+CREATE TABLE IF NOT EXISTS tutorial_python_ks.f_user_transactions_stats(
    id UUID,
    username text,
    sent_transactions counter,

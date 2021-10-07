@@ -1,3 +1,3 @@
-DROP TABLE IF EXISTS transactions_events;
+DROP TABLE IF EXISTS f_transactions_events;
 
-DROP TABLE IF EXISTS user_transactions_stats;
+DROP TABLE IF EXISTS d_user_profile;

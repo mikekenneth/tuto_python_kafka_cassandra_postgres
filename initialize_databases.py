@@ -15,5 +15,5 @@ def create_postgres_table():
         manager = Postgres_Manager()
         manager.execute(queries)
 
-
-create_postgres_table()
+if __name__ == "__main__":
+    create_postgres_table()
