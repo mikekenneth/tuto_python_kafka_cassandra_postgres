@@ -2,7 +2,6 @@ from utils.kafka_manager import Consume
 from utils.postgres_manager import Manager as Postgres_Manager
 from utils.fake_data_generator import generate_profile, _get_columns
 
-
 pg_manager = Postgres_Manager()
 
 def process_data(data: str):
