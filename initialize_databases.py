@@ -10,8 +10,8 @@ from utils.postgres_manager import Manager as Postgres_Manager
 
 # Create postgres tables
 def create_postgres_table():
-    with open('assets/schema/postgres_createall.sql') as f:
-        queries = f.read()
+    with open('assets/schema/postgres_createall.sql') as query_file:
+        queries = query_file.read()
         manager = Postgres_Manager()
         manager.execute(queries)
 

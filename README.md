@@ -20,6 +20,9 @@ python3 initialize_database.py
 ## TODO
 
 - [ ] Add other data pipeline tools in the design and see how they work together.
+- [ ] Design a website to monitor all the pipeline & Trigger Data Generation
+    - [ ] Kafka topics messages stats: 
+    - [ ] Records in cassandra & postgresql tables
 
 ## License
 
